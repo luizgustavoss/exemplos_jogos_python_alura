@@ -18,7 +18,7 @@ def jogar():
     letras_sugeridas = {()}
 
     # construção da palavra com os acertos do usuário
-    letras_acertadas = iniciarlizar_lista_letras(palavra_secreta)
+    letras_acertadas = inicializar_lista_letras(palavra_secreta)
 
     while(not perdeu and not acertou):
 
@@ -47,6 +47,7 @@ def jogar():
             perdeu = True
             print("VOCÊ PERDEU!")
             print(forca_mostrar)
+            print("A palavra secreta era: '{}' ".format(palavra_secreta))
 
 
 def apresentar_jogo():
@@ -66,7 +67,7 @@ def preparar_forca():
 def selecionar_palavra_secreta():
 
     # lendo o arquivo que contém as definições de palavras
-    arquivo = open("frutas.txt", "r")
+    arquivo = open("frutas.txt", "r", -1, "UTF-8")
     palavras = []
 
     for linha in arquivo:
@@ -80,7 +81,7 @@ def selecionar_palavra_secreta():
     return  palavras[indice]
 
 
-def iniciarlizar_lista_letras(palavra_secreta):
+def inicializar_lista_letras(palavra_secreta):
 
     letras_acertadas = ["_" for ps in palavra_secreta]
     return letras_acertadas
